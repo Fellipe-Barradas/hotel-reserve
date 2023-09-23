@@ -4,6 +4,8 @@ import com.barradas.domain.Hotel;
 import com.barradas.repository.HotelRepository;
 import com.barradas.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,8 +27,8 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public List<Hotel> findAll() {
-        return hotelRepository.findAll();
+    public Page<Hotel> findAll(Pageable pageable) {
+        return hotelRepository.findAll(pageable);
     }
 
     @Override

@@ -6,6 +6,8 @@ import com.barradas.service.HotelService;
 import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -24,9 +26,11 @@ public class HotelController {
         this.hotelService = hotelService;
     }
 
+    @Cacheable(value = "hotels")
     @GetMapping
-    public ResponseEntity<List<Hotel>> getHotels() {
-        return ResponseEntity.ok().body(hotelService.findAll());
+    public ResponseEntity<List<Hotel>> getHotels(Pageable pageable) {
+        List<Hotel> hotels = hotelService.findAll(pageable).getContent();
+        return ResponseEntity.ok().body(hotels);
     }
 
     @GetMapping("/{id}")
