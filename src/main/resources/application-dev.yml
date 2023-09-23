@@ -1,0 +1,5 @@
+DATASOURCE:
+  URL: "jdbc:h2:mem:testdb"
+  USERNAME: "sa"
+  PASSWORD: ""
+  DRIVER: "org.h2.Driver"
