@@ -3,6 +3,7 @@ package com.barradas.controller;
 import com.barradas.domain.Hotel;
 import com.barradas.dto.HotelDto;
 import com.barradas.service.HotelService;
+import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,7 @@ public class HotelController {
     }
 
     @PostMapping("/admin")
-    public ResponseEntity<Hotel> createHotel(@RequestBody HotelDto hotelDto) {
+    public ResponseEntity<Hotel> createHotel(@RequestBody @Valid HotelDto hotelDto) {
         Hotel hotel = new Hotel(
                 hotelDto.name(), hotelDto.description(),
                 hotelDto.price(), hotelDto.city(), hotelDto.state()

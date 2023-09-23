@@ -53,6 +53,9 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public void delete(Long id) {
+        if(!hotelRepository.existsById(id)) {
+            throw new NoSuchElementException("Hotel not found");
+        }
         hotelRepository.deleteById(id);
     }
 

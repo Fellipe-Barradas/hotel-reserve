@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "HOTEL_TB")
@@ -32,6 +34,9 @@ public class Hotel {
 
     private String city;
     private String state;
+
+    @OneToMany(mappedBy = "hotel")
+    private List<Reservation> reservations = new ArrayList<>();
 
     public Hotel(String name, String description, BigDecimal price, String city, String state) {
         this.name = name;
