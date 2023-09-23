@@ -1,5 +1,6 @@
 package com.barradas.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Reservation> reservation = new ArrayList<>();
 
     public User(String name, String email, String password) {

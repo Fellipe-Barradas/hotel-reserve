@@ -1,5 +1,6 @@
 package com.barradas.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,6 +37,7 @@ public class Hotel {
     private String state;
 
     @OneToMany(mappedBy = "hotel")
+    @JsonIgnore
     private List<Reservation> reservations = new ArrayList<>();
 
     public Hotel(String name, String description, BigDecimal price, String city, String state) {

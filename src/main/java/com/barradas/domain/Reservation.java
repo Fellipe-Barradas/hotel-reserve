@@ -32,12 +32,10 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonIgnore
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "hotel_id")
-    @JsonIgnore
     private Hotel hotel;
 
     public Reservation(Integer guests, LocalDate checkin, LocalDate checkout, User user, Hotel hotel) {
