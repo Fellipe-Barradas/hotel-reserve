@@ -10,6 +10,7 @@ import java.util.List;
 
 public interface HotelRepository extends JpaRepository<Hotel, Long> {
 
+    @Query("FROM Hotel h WHERE lower(h.name) LIKE lower(concat('%',:name, '%'))")
     List<Hotel> findAllByName(String name);
 
     @Query("FROM Hotel h WHERE h.price >= :minPrice AND h.price <= :maxPrice")
