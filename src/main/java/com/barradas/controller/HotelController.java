@@ -1,6 +1,7 @@
 package com.barradas.controller;
 
 import com.barradas.domain.Hotel;
+import com.barradas.dto.FilterDTO;
 import com.barradas.dto.HotelDto;
 import com.barradas.service.HotelService;
 import jakarta.validation.Valid;
@@ -28,8 +29,8 @@ public class HotelController {
 
     @Cacheable(value = "hotels")
     @GetMapping
-    public ResponseEntity<List<Hotel>> getHotels(Pageable pageable) {
-        List<Hotel> hotels = hotelService.findAll(pageable).getContent();
+    public ResponseEntity<List<Hotel>> getHotels(Pageable pageable, @RequestBody FilterDTO filterDTO) {
+        List<Hotel> hotels = hotelService.findAllWithFilter(pageable, filterDTO).getContent();
         return ResponseEntity.ok().body(hotels);
     }
 

@@ -1,6 +1,7 @@
 package com.barradas.service.impl;
 
 import com.barradas.domain.Hotel;
+import com.barradas.dto.FilterDTO;
 import com.barradas.repository.HotelRepository;
 import com.barradas.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.logging.Filter;
 
 @Service
 public class HotelServiceImpl implements HotelService {
@@ -27,8 +29,9 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public Page<Hotel> findAll(Pageable pageable) {
-        return hotelRepository.findAll(pageable);
+    public Page<Hotel> findAllWithFilter(Pageable pageable, FilterDTO filterDTO) {
+        int maxPrice = filterDTO.maxPrice() == 0 ? Integer.MAX_VALUE : filterDTO.maxPrice();
+        return hotelRepository.findAllByPriceBetween(pageable, filterDTO.minPrice(), maxPrice);
     }
 
     @Override
