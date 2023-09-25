@@ -1,6 +1,7 @@
 package com.barradas.service;
 
 import com.barradas.domain.Hotel;
+import com.barradas.domain.User;
 import com.barradas.dto.FilterDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,6 +1,7 @@
 package com.barradas.service.impl;
 
 import com.barradas.domain.Hotel;
+import com.barradas.domain.User;
 import com.barradas.dto.FilterDTO;
 import com.barradas.repository.HotelRepository;
 import com.barradas.service.HotelService;

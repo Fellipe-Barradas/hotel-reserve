@@ -40,6 +40,10 @@ public class Hotel {
     @JsonIgnore
     private List<Reservation> reservations = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "favorites")
+    @JsonIgnore
+    private List<User> users = new ArrayList<>();
+
     public Hotel(String name, String description, BigDecimal price, String city, String state) {
         this.name = name;
         this.description = description;

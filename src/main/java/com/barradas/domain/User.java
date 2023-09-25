@@ -36,9 +36,17 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Reservation> reservation = new ArrayList<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "USER_FAVORITE",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "favorite_id")
+    )
+    private List<Hotel> favorites = new ArrayList<>();
 
     public User(String name, String email, String password) {
         this.name = name;
@@ -50,6 +58,14 @@ public class User implements UserDetails {
     public User(String name, String email) {
         this.name = name;
         this.email = email;
+    }
+
+    public void addFavorite(Hotel hotel) {
+        this.favorites.add(hotel);
+    }
+
+    public void removeFavorite(Hotel hotel) {
+        this.favorites.remove(hotel);
     }
 
     @Override
