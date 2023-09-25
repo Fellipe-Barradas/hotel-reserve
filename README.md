@@ -1,5 +1,5 @@
 # Hotel Reserve
-Projeto spring boot e react, para reserva de hoteis. Visando apenas para educação e estudo.
+Projeto spring boot, para reserva de hoteis. Visando apenas para educação e estudo.
 
 ## Documentação
 <br>**Link deploy api railway:** https://hotel-reserve-production.up.railway.app/swagger-ui/index.html
