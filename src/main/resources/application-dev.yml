@@ -1,8 +1,9 @@
-DATASOURCE:
-  URL: "jdbc:h2:mem:testdb"
-  USERNAME: "sa"
-  PASSWORD: ""
-  DRIVER: "org.h2.Driver"
-TOKEN:
-  JWT:
-    SECRET: "hotelservicosecret34355"
+spring:
+  datasource:
+    url: jdbc:h2:mem:hotelservice
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+      hibernate:
+          ddl-auto: create
