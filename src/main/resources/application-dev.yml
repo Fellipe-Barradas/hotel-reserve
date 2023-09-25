@@ -3,3 +3,6 @@ DATASOURCE:
   USERNAME: "sa"
   PASSWORD: ""
   DRIVER: "org.h2.Driver"
+TOKEN:
+  JWT:
+    SECRET: "hotelservicosecret34355"
