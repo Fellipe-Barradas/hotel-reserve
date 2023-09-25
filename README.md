@@ -1,9 +1,12 @@
 # Hotel Reserve
-Projeto spring boot e react, para reserva de hoteis. Visando apenas para educação, seguindo principios de arquitetura limpa.
+Projeto spring boot e react, para reserva de hoteis. Visando apenas para educação e estudo.
 
-<br>**Em desenvolvimento.**
+## Documentação
+<br>**Link deploy api railway:** https://hotel-reserve-production.up.railway.app/swagger-ui/index.html
+<br>**Figma design:** https://www.figma.com/file/2Jc0gyQH5ML3WpHNOKpPBA/hoteis?type=design&node-id=0-1&mode=design&t=ItbPwWdoGFP4GPj2-0
+<br>
 ## Descriçao
-Projeto consiste em duas partes, o client, no qual será feito com vue.js, com a interface bonita. API Restfull, stateless e que usa autenticação e autorização por token jwt.
+Projeto consiste em uma API Restfull, stateless e que usa autenticação e autorização por token jwt.
 
 ## Principais usos
 
@@ -36,10 +39,6 @@ classDiagram
         + password : string
     }
 
-    class FavoriteHotel {
-        + favorite_id : int
-    }
-
     class Reservation {
         + reservation_id : int
         + guests : int
@@ -48,7 +47,26 @@ classDiagram
         + end_date : date
     }
 
-    User --|> FavoriteHotel : "Has"
+    class Favorite {
+        + user_id : int
+        + hotel_id : int
+    }
+
     Hotel --|> Reservation : "Is Reserved By"
     User --|> Reservation : "Makes"
+    User --|> Favorite : "Has"
+    Hotel --|> Favorite : "Has"
 ```
+
+## Tecnologias e depêndencias
+- Spring Boot 3
+- Java 20
+- H2
+- Postgresql
+- Spring security
+- Lombok
+- Java jwt
+- Open API
+- Hibernate
+- Railway
+
