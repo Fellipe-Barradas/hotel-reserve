@@ -2,20 +2,30 @@ import configFillter from "@/public/config-fillter.svg"
 import searchIcon from "@/public/search-icon.svg"
 import starIcon from "@/public/uil_favorite.svg"
 import profileIcon from "@/public/profile-icon.svg"
+import logo from "@/public/logo.png"
 import Image from "next/image"
 
 
 export default function NavBar() {
     return (
         <nav className="flex justify-around align-middle items-center p-2 shadow-md">
-            <h1 className="text-2xl text-red-600">Hotel Reserve</h1>
+            <div className="flex items-center">
+            <Image
+                        priority
+                        src={logo}
+                        alt="Fillter button"
+                        width={40}
+                    />
+            <h1 className="text-2xl text-pink-500 font-gabarito">Hotel Reserve</h1>
+            </div>
+            
             <div className="flex justify-between w-1/4 items-center">
                 <button>
                     <Image
                         priority
                         src={configFillter}
                         alt="Fillter button"
-                        width={25}
+                        width={20}
                     />
                 </button>
                 <input
