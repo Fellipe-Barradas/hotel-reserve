@@ -4,7 +4,7 @@ import starIcon from "@/public/uil_favorite.svg"
 import profileIcon from "@/public/profile-icon.svg"
 import logo from "@/public/logo.png"
 import Image from "next/image"
-
+import bgImage from "@/public/bg.jpg"
 
 export default function NavBar() {
     return (
