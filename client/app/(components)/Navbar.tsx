@@ -16,7 +16,7 @@ export default function NavBar() {
                         alt="Fillter button"
                         width={40}
                     />
-            <h1 className="text-2xl text-pink-500 font-gabarito">Hotel Reserve</h1>
+            <h1 className="text-2xl font-gabarito">Hotel Reserve</h1>
             </div>
             
             <div className="flex justify-between w-1/4 items-center">
