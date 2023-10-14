@@ -5,10 +5,12 @@ import profileIcon from "@/public/profile-icon.svg"
 import logo from "@/public/logo.png"
 import Image from "next/image"
 import bgImage from "@/public/bg.jpg"
+import Wrapper from "./Wrapper"
 
 export default function NavBar() {
     return (
-        <nav className="flex justify-around align-middle items-center p-2 shadow-md">
+        <nav className="shadow-md">
+            <Wrapper className="flex justify-between  items-center p-2 ">
             <div className="flex items-center">
             <Image
                         priority
@@ -19,7 +21,7 @@ export default function NavBar() {
             <h1 className="text-2xl font-gabarito">Hotel Reserve</h1>
             </div>
             
-            <div className="flex justify-between w-1/4 items-center">
+            <div className="flex justify-between items-center gap-3">
                 <button>
                     <Image
                         priority
@@ -33,11 +35,12 @@ export default function NavBar() {
                     className="rounded-xl p-1 border border-slate-500 shadow-sm
                      hover:shadow-md transition-all focus:outline-0"
                     placeholder="hotel verde brisa..." />
-                <button className="border-2 w-7 h-7 flex justify-center items-center
+                <button className="border-2 w-8 h-8 flex justify-center items-center
                  rounded-full border-black hover:bg-gray-100 hover:rotate-12 transition-all">
                     <Image
                         priority
                         src={searchIcon}
+                        width={20}
                         alt="Search button"
                     />
                 </button>
@@ -57,6 +60,7 @@ export default function NavBar() {
                     width={25}
                 />
             </div>
+            </Wrapper>
         </nav>
     )
 }

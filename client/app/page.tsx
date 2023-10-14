@@ -8,7 +8,7 @@ interface hotel {
   descricao: string,
   dataCriacao: string,
   price: number,
-  imgUrl: string
+  imgUrl?: string
 }
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
             nome={hotel.nome}
             dataCriacao={hotel.dataCriacao}
             price={hotel.price}
-            imgUrl={hotel.imgUrl}
+            imgUrl={hotel.imgUrl ? hotel.imgUrl : "url"}
           />
         </Link>
       )}

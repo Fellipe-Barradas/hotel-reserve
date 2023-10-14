@@ -4,7 +4,27 @@ interface hotel{
     descricao: string,
     dataCriacao: string,
     price: number,
-    imgUrl: string
+    imgUrl?: string
+}
+
+interface Reserva{
+    nome: string
+    checkOut: string
+    checkIn: string
+    price: number
+}
+
+interface User{
+    nome: string
+    email: string
+    reservas: Reserva[]
+}
+
+function generateRandomImageUrL(): string{
+    let url = "https://source.unsplash.com/random/"
+    let width = Math.floor(Math.random() * 1000)
+    let height = Math.floor(Math.random() * 1000)
+    return `${url}${width}%C3%97${height}/?hotel`
 }
 
 let hotels: hotel[] = [
@@ -73,6 +93,11 @@ let hotels: hotel[] = [
         imgUrl: "https://source.unsplash.com/random/800%C3%97500/?hotel"
     },
 ]
+
+hotels.map((hotels) => {
+    hotels.imgUrl = generateRandomImageUrL()
+})
+
 export function useFetch(){
     
     function getAllHotels(): hotel[]{
@@ -84,9 +109,57 @@ export function useFetch(){
         // TODO fetch hotel by id
         return hotels.find((param) => param.id == id)!
     }
+
+    function getUserData(authToken: string): User{
+        // TODO fetch dados do usuário
+        return {
+            nome: "Luis",
+            email: "email@gmail.com",
+            reservas: [
+                {
+                    nome: "Verde Brisa",
+                    checkIn: "20/10/2020",
+                    checkOut: "28/10/2020",
+                    price: 2000
+                },
+                {
+                    nome: "Verde Brisa",
+                    checkIn: "20/10/2020",
+                    checkOut: "28/10/2020",
+                    price: 2000
+                },
+                {
+                    nome: "Verde Brisa",
+                    checkIn: "20/10/2020",
+                    checkOut: "28/10/2020",
+                    price: 2000
+                },
+                {
+                    nome: "Verde Brisa",
+                    checkIn: "20/10/2020",
+                    checkOut: "28/10/2020",
+                    price: 2000
+                },
+                {
+                    nome: "Verde Brisa",
+                    checkIn: "20/10/2020",
+                    checkOut: "28/10/2020",
+                    price: 2000
+                },
+                {
+                    nome: "Verde Brisa",
+                    checkIn: "20/10/2020",
+                    checkOut: "28/10/2020",
+                    price: 2000
+                },
+            ]
+        }
+    }
+
     return {
         getAllHotels,
-        getHotelById
+        getHotelById,
+        getUserData
     }
 }
 
