@@ -4,7 +4,7 @@ import starIcon from "@/public/uil_favorite.svg"
 import profileIcon from "@/public/profile-icon.svg"
 import logo from "@/public/logo.png"
 import Image from "next/image"
-import bgImage from "@/public/bg.jpg"
+import Link from "next/link"
 import Wrapper from "./Wrapper"
 
 export default function NavBar() {
@@ -12,12 +12,15 @@ export default function NavBar() {
         <nav className="shadow-md">
             <Wrapper className="flex justify-between  items-center p-2 ">
             <div className="flex items-center">
+            <Link href={"/"}>
             <Image
                         priority
                         src={logo}
                         alt="Fillter button"
-                        width={40}
+                        width={70}
                     />
+            
+            </Link>
             <h1 className="text-2xl font-gabarito">Hotel Reserve</h1>
             </div>
             
@@ -47,18 +50,22 @@ export default function NavBar() {
 
             </div>
             <div className="flex gap-5 items-center">
+                <Link href={"/favorites"}>
                 <Image
                     priority
                     src={starIcon}
                     alt="Favorites button"
                     width={25}
                 />
+                </Link>
+                <Link href={"/profile"}>
                 <Image
                     priority
                     src={profileIcon}
                     alt="Profile button"
                     width={25}
                 />
+                </Link>
             </div>
             </Wrapper>
         </nav>
